@@ -2,13 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-@st.cache
-def load_data():
-    df = pd.read_csv('temperature_data.csv')
-    return df
-
 # Load the data from the CSV file
-df = load_data()
+df = pd.read_csv('Enviroment_Temperature_change_E_All_Data_NOFLAG.csv')
 
 # Add a title to the app
 st.title('Interactive Temperature Dashboard')
