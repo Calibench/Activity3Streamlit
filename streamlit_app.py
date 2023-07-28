@@ -14,16 +14,17 @@ selected_area = st.selectbox('Select an Area', df['Area'].unique())
 # Filter the dataset based on user selections
 filtered_data = df[df['Area'] == selected_area]
 
-# Display the filtered data as a table
-st.write('Filtered Data:')
-st.write(filtered_data)
+# Get year columns
+year_columns = [col for col in df.columns if 'Y' in col]
 
-# Create a bar chart using matplotlib and display it using Streamlit
+# Create a new dataframe with only the year columns
+yearly_data = filtered_data[year_columns].T
+
+# Create the line chart using matplotlib and display it using Streamlit
 fig, ax = plt.subplots()
-years = [column for column in filtered_data.columns if 'Y' in column]
-temperatures = filtered_data[years].mean().values # assuming that we take the average temperature if an area appears multiple times
-ax.plot(years, temperatures)
+ax.plot(yearly_data.index, yearly_data[selected_area])
 ax.set_xlabel('Year')
 ax.set_ylabel('Temperature')
-ax.set_title(f'{selected_area} - Average Temperature Over the Years')
+ax.set_title(f'Temperature Changes in {selected_area} Over the Years')
+plt.xticks([])  # Hide x-axis labels
 st.pyplot(fig)
