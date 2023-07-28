@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-@st.cache
+#@st.cache
 def load_data():
     df = pd.read_csv('temperature_data.csv')
     return df
