@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 df = pd.read_csv('Enviroment_Temperature_change_E_All_Data_NOFLAG.csv')
 
@@ -11,7 +11,7 @@ selected_country = st.selectbox('Select a country', df['Area'].unique())
 
 filtered_data = df[(df['Area'] == selected_country)
 
-st.write("Filtered Data: ")
-st.write(filtered_data)
+#st.write("Filtered Data: ")
+#st.write(filtered_data)
 
-fig, ax = plt.subplots()
+#fig, ax = plt.subplots()
