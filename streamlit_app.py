@@ -17,9 +17,8 @@ filtered_data = df[df['Area'] == selected_area]
 # Get year columns
 year_columns = [col for col in df.columns if 'Y' in col]
 
-# Select the row for the selected area and transpose it
-yearly_data = filtered_data[year_columns].T
-yearly_data.columns = ['Temperature']
+# Select the data for the selected area and calculate average temperature for each year
+yearly_data = filtered_data[year_columns].mean().to_frame(name='Temperature')
 
 # Create the line chart using matplotlib and display it using Streamlit
 fig, ax = plt.subplots()
