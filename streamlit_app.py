@@ -26,5 +26,8 @@ ax.plot(yearly_data.index, yearly_data['Temperature'])
 ax.set_xlabel('Year')
 ax.set_ylabel('Temperature')
 ax.set_title(f'Temperature Changes in {selected_area} Over the Years')
-plt.xticks([])  # Hide x-axis labels
+
+# Keep the ticks but remove the labels by setting them to empty strings
+ax.set_xticklabels([''] * len(yearly_data.index))
+
 st.pyplot(fig)
