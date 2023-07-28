@@ -11,7 +11,7 @@ selected_country = st.selectbox('Select a country', df['Area'].unique())
 
 filtered_data = df[(df['Area'] == selected_country)
 
-st.write('Filtered Data: ')
+st.write("Filtered Data: ")
 st.write(filtered_data)
 
 fig, ax = plt.subplots()
