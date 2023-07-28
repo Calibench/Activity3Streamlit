@@ -11,18 +11,19 @@ st.title('Interactive Temperature Dashboard')
 # Create a dropdown for area selection
 selected_area = st.selectbox('Select an Area', df['Area'].unique())
 
-# Filter the dataset based on user selections
+# Filter the dataset based on user selection
 filtered_data = df[df['Area'] == selected_area]
 
 # Get year columns
 year_columns = [col for col in df.columns if 'Y' in col]
 
-# Create a new dataframe with only the year columns
+# Select the row for the selected area and transpose it
 yearly_data = filtered_data[year_columns].T
+yearly_data.columns = ['Temperature']
 
 # Create the line chart using matplotlib and display it using Streamlit
 fig, ax = plt.subplots()
-ax.plot(yearly_data.index, yearly_data[selected_area])
+ax.plot(yearly_data.index, yearly_data['Temperature'])
 ax.set_xlabel('Year')
 ax.set_ylabel('Temperature')
 ax.set_title(f'Temperature Changes in {selected_area} Over the Years')
