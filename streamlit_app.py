@@ -1,7 +1,7 @@
 #IMPORT Streamlit
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import st.pyplot as plt
 
 #import our csv file
 df = pd.read_csv("Enviroment_Temperature_change_E_All_Data_NOFLAG.csv")
